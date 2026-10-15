@@ -39,7 +39,8 @@ hiv_surv <- Surv(time = hiv$time, event = hiv$status)
 km_fit <- survfit(hiv_surv ~ treatment, data = hiv)
 
 # Plot Kaplan-Meier survival curves
-plot(km_fit, lty = 2:1,
+plot(km_fit,
+     lty = 2:1,
      xlab = "Time",
      ylab = "Survival Probability",
      main = "Kaplan-Meier Survival Curves by Treatment Type")
@@ -66,5 +67,34 @@ km_120$upper
 # ============================================================
 
 # Fit Cox model to assess the association between treatment type and hazard of CD4 relapse
+cox_fit <- coxph(hiv_surv ~ treatment, data = hiv)
+
+# Output the regression coefficients, hazard ratio, confidence intervals, and statistical significance. 
+summary(cox_fit)
+
+# Create dataset containing both treatment groups.
+cox_groups <- data.frame( treatment = factor(c("Two-drug", "Triple-drug"), levels = levels(hiv$treatment)))
+
+# Estimate Cox model survival curves for both treatment groups
+cox_surv <- survfit(cox_fit, newdata = cox_groups)
+
+# Plot Cox model survival curves for both treatment groups
+plot(cox_surv,
+     col = "blue",
+     lty = 2:1,
+     lwd = 1.5,
+     conf.int = FALSE,
+     xlab = "Time (days)",
+     ylab = "Relapse-Free Survival Probability",
+     main = "Cox Model Survival Curves by Treatment Type")
+
+# Add treatment key to the top right of the graph
+legend("topright",
+       legend = levels(hiv$treatment),
+       col = "blue",
+       lty = 2:1,
+       lwd = 1.5,
+       bty = "n")
+
 
 
