@@ -67,6 +67,16 @@ Model_efron <- coxph(Surv(time, status) ~ treatment,
 # Display Efron method results
 summary(Model_efron)
 
+# ============================================================
+# 4. WEIBULL ACCELERATED FAILURE TIME MODEL 
+# ============================================================
+
+# Fit Weibull AFT Model to investigate the association between treatment time to blindness
+drs_weibull <- survreg(Surv(time,status)~ treatment, data = drs, dist = "weibull")
+
+# Display regression coefficients and model results
+summary(drs_weibull)
+
 
 
 
