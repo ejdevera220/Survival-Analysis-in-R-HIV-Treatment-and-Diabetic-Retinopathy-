@@ -96,5 +96,47 @@ legend("topright",
        lwd = 1.5,
        bty = "n")
 
+# ============================================================
+# 5. PROPORTIONAL HAZARDS ASSUMPTION DIAGNOSTICS 
+# ============================================================
+
+# Create Log-minus-log transformation
+log_transform <- transform(x){log(-log(x))}
+
+# Plot the transformed KM Survival Curves
+plot(km_fit,
+     fun = log_transform,
+     lty = 2:1,
+     lwd = 1.5,
+     conf.int = FALSE,
+     xlab = "Time (days)",
+     ylab= "log(-log(S(t)))",
+     main = Log-Minus-Log Survival Curves")
+
+# Add  key to top right of the graph
+legend("topright",
+       legend = levels(hiv$treatment),
+       lty = 2:1,
+       lwd = 1.5,
+       bty = "n")
+
+# Test the proportional hazards assumptions using scaled Schoenfield residuals:
+ph_test <- cox.zph(cox_fit)
+
+# Display test statistics and p-values
+ph_test
+
+# Plot residuals to assess changes in treatment effect over time
+plot(ph_test)
+
+
+
+
+
+
+
+
+
+
 
 
