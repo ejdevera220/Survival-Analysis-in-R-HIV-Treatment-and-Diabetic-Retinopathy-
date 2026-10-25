@@ -47,7 +47,25 @@ Model_3 <- coxph(Surv(time, status) ~ treatment, data = drs)
 # Display final model results
 summary(Model_3)
 
+# ============================================================
+# 3. COMPARISON OF TIED-EVENT METHODS
+# ============================================================
 
+# Fit Cox proportional hazards model using the exact method
+Model_exact <- coxph(Surv(time, status) ~ treatment,
+                     data = drs,
+                     ties = "exact")
+
+# Display exact method results 
+summary(Model_exact)
+
+# Fit Cox proportional hazards model using the Efron method
+Model_efron <- coxph(Surv(time, status) ~ treatment,
+                     data = drs,
+                     ties = "efron")
+
+# Display Efron method results
+summary(Model_efron)
 
 
 
