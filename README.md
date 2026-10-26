@@ -39,6 +39,8 @@ The objective is to demonstrate the application of statstical modelling, data an
 ## 3. HIV Treatment Survival Analysis
 ### 3.1 Kaplan-Meier Survival Analysis
 
+![Kaplan-Meier Survival Curves](figures/KM%20Survival%20Curves%20by%20Treatment%20Type.png)
+
 ### 3.2 Survival Probabilities and 95% Confidence Intervals
 
 ### 3.3 Cox Proportional Hazards Regression
