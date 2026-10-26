@@ -36,7 +36,14 @@ The objective is to demonstrate the application of statstical modelling, data an
 - **CSV datasets**: Storing and importing clinical data.
 - **Github**: Organising and presenting the project.
 
-## 3. HIV Analysis
+## 3. HIV Treatment Survival Analysis
+### 3.1 Kaplan-Meier Survival Analysis
+
+### 3.2 Survival Probabilities and 95% Confidence Intervals
+
+### 3.3 Cox Proportional Hazards Regression
+
+### 3.4 Proportional Hazards Assumption Diagnostics
 
 
 
