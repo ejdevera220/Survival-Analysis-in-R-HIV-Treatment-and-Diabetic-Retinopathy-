@@ -29,12 +29,14 @@ The objective is to demonstrate the application of statstical modelling, data an
 - **time**: time until CD4 relapse or censoring
 - **status**: whether CD4 relapse occured (1 = event, 0 = censored)
 - **treatment**: Two-drug or Triple-drug treatment
+
 **Diabetic Retinopathy Dataset** (DRS.csv)
 - **time**: time until blindeness or censoring
 - **status**: whether blindness occured (1 = event, 0 = censored)
 - **treatment**: Laser or placebo treatment
 - **age**: Patient age
 - **riskgp**: Patient risk group
+
 **Tools**
 - **R**: Statistical Modelling and data analysis.
 - **Survival Package**: Kaplan-Meier estimation, Cox regression, Schoenfield residual diagnostics and Weibull AFT Modelling.
